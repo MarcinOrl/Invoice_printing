@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             firstName = new Label();
-            textBox1 = new TextBox();
+            firstNameTxt = new TextBox();
             lastName = new Label();
-            textBox2 = new TextBox();
+            lastNameTxt = new TextBox();
             value = new Label();
-            textBox3 = new TextBox();
             item = new Label();
-            textBox4 = new TextBox();
+            itemTxt = new TextBox();
             label1 = new Label();
             btnInsert = new Button();
             btnInsertPrint = new Button();
+            valueTxt = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)valueTxt).BeginInit();
             SuspendLayout();
             // 
             // firstName
@@ -50,12 +51,12 @@
             firstName.TabIndex = 0;
             firstName.Text = "Imię";
             // 
-            // textBox1
+            // firstNameTxt
             // 
-            textBox1.Location = new Point(129, 34);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 1;
+            firstNameTxt.Location = new Point(129, 34);
+            firstNameTxt.Name = "firstNameTxt";
+            firstNameTxt.Size = new Size(125, 27);
+            firstNameTxt.TabIndex = 1;
             // 
             // lastName
             // 
@@ -66,12 +67,12 @@
             lastName.TabIndex = 2;
             lastName.Text = "Nazwisko";
             // 
-            // textBox2
+            // lastNameTxt
             // 
-            textBox2.Location = new Point(129, 78);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 3;
+            lastNameTxt.Location = new Point(129, 78);
+            lastNameTxt.Name = "lastNameTxt";
+            lastNameTxt.Size = new Size(125, 27);
+            lastNameTxt.TabIndex = 3;
             // 
             // value
             // 
@@ -82,13 +83,6 @@
             value.TabIndex = 4;
             value.Text = "Cena";
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(129, 173);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 5;
-            // 
             // item
             // 
             item.AutoSize = true;
@@ -98,12 +92,12 @@
             item.TabIndex = 6;
             item.Text = "Towar";
             // 
-            // textBox4
+            // itemTxt
             // 
-            textBox4.Location = new Point(129, 126);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 7;
+            itemTxt.Location = new Point(129, 126);
+            itemTxt.Name = "itemTxt";
+            itemTxt.Size = new Size(125, 27);
+            itemTxt.TabIndex = 5;
             // 
             // label1
             // 
@@ -132,25 +126,35 @@
             btnInsertPrint.Text = "Zapisz i drukuj";
             btnInsertPrint.UseVisualStyleBackColor = true;
             // 
+            // valueTxt
+            // 
+            valueTxt.DecimalPlaces = 2;
+            valueTxt.Location = new Point(129, 174);
+            valueTxt.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            valueTxt.Name = "valueTxt";
+            valueTxt.Size = new Size(125, 27);
+            valueTxt.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(800, 440);
+            Controls.Add(valueTxt);
             Controls.Add(btnInsertPrint);
             Controls.Add(btnInsert);
-            Controls.Add(textBox4);
+            Controls.Add(itemTxt);
             Controls.Add(label1);
             Controls.Add(item);
-            Controls.Add(textBox3);
             Controls.Add(value);
-            Controls.Add(textBox2);
+            Controls.Add(lastNameTxt);
             Controls.Add(lastName);
-            Controls.Add(textBox1);
+            Controls.Add(firstNameTxt);
             Controls.Add(firstName);
             Name = "Form1";
             Text = "Faktury";
+            ((System.ComponentModel.ISupportInitialize)valueTxt).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,15 +162,15 @@
         #endregion
 
         private Label firstName;
-        private TextBox textBox1;
+        private TextBox firstNameTxt;
         private Label lastName;
-        private TextBox textBox2;
+        private TextBox lastNameTxt;
         private Label value;
-        private TextBox textBox3;
         private Label item;
-        private TextBox textBox4;
+        private TextBox itemTxt;
         private Label label1;
         private Button btnInsert;
         private Button btnInsertPrint;
+        private NumericUpDown valueTxt;
     }
 }
