@@ -39,13 +39,22 @@
             btnInsert = new Button();
             btnInsertPrint = new Button();
             valueTxt = new NumericUpDown();
+            dtv = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            firstnm = new DataGridViewTextBoxColumn();
+            lastnm = new DataGridViewTextBoxColumn();
+            itm = new DataGridViewTextBoxColumn();
+            val = new DataGridViewTextBoxColumn();
+            dateTimePicker1 = new DateTimePicker();
+            reloadBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)valueTxt).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtv).BeginInit();
             SuspendLayout();
             // 
             // firstName
             // 
             firstName.AutoSize = true;
-            firstName.Location = new Point(51, 37);
+            firstName.Location = new Point(41, 36);
             firstName.Name = "firstName";
             firstName.Size = new Size(38, 20);
             firstName.TabIndex = 0;
@@ -53,7 +62,7 @@
             // 
             // firstNameTxt
             // 
-            firstNameTxt.Location = new Point(129, 34);
+            firstNameTxt.Location = new Point(94, 33);
             firstNameTxt.Name = "firstNameTxt";
             firstNameTxt.Size = new Size(125, 27);
             firstNameTxt.TabIndex = 1;
@@ -61,7 +70,7 @@
             // lastName
             // 
             lastName.AutoSize = true;
-            lastName.Location = new Point(51, 80);
+            lastName.Location = new Point(7, 80);
             lastName.Name = "lastName";
             lastName.Size = new Size(72, 20);
             lastName.TabIndex = 2;
@@ -69,7 +78,7 @@
             // 
             // lastNameTxt
             // 
-            lastNameTxt.Location = new Point(129, 78);
+            lastNameTxt.Location = new Point(94, 77);
             lastNameTxt.Name = "lastNameTxt";
             lastNameTxt.Size = new Size(125, 27);
             lastNameTxt.TabIndex = 3;
@@ -77,7 +86,7 @@
             // value
             // 
             value.AutoSize = true;
-            value.Location = new Point(51, 176);
+            value.Location = new Point(37, 175);
             value.Name = "value";
             value.Size = new Size(42, 20);
             value.TabIndex = 4;
@@ -86,7 +95,7 @@
             // item
             // 
             item.AutoSize = true;
-            item.Location = new Point(51, 129);
+            item.Location = new Point(30, 128);
             item.Name = "item";
             item.Size = new Size(49, 20);
             item.TabIndex = 6;
@@ -94,7 +103,7 @@
             // 
             // itemTxt
             // 
-            itemTxt.Location = new Point(129, 126);
+            itemTxt.Location = new Point(94, 125);
             itemTxt.Name = "itemTxt";
             itemTxt.Size = new Size(125, 27);
             itemTxt.TabIndex = 5;
@@ -102,16 +111,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(66, 129);
+            label1.Location = new Point(31, 128);
             label1.Name = "label1";
             label1.Size = new Size(0, 20);
             label1.TabIndex = 6;
             // 
             // btnInsert
             // 
-            btnInsert.Location = new Point(114, 256);
+            btnInsert.Location = new Point(224, 375);
             btnInsert.Name = "btnInsert";
-            btnInsert.Size = new Size(154, 33);
+            btnInsert.Size = new Size(154, 44);
             btnInsert.TabIndex = 8;
             btnInsert.Text = "Zapisz";
             btnInsert.UseVisualStyleBackColor = true;
@@ -119,21 +128,100 @@
             // 
             // btnInsertPrint
             // 
-            btnInsertPrint.Location = new Point(114, 318);
+            btnInsertPrint.Location = new Point(418, 375);
             btnInsertPrint.Name = "btnInsertPrint";
-            btnInsertPrint.Size = new Size(154, 33);
+            btnInsertPrint.Size = new Size(154, 44);
             btnInsertPrint.TabIndex = 9;
             btnInsertPrint.Text = "Zapisz i drukuj";
             btnInsertPrint.UseVisualStyleBackColor = true;
+            btnInsertPrint.Click += btnInsertPrint_Click;
             // 
             // valueTxt
             // 
             valueTxt.DecimalPlaces = 2;
-            valueTxt.Location = new Point(129, 174);
+            valueTxt.Location = new Point(94, 173);
             valueTxt.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             valueTxt.Name = "valueTxt";
             valueTxt.Size = new Size(125, 27);
             valueTxt.TabIndex = 7;
+            // 
+            // dtv
+            // 
+            dtv.AllowUserToAddRows = false;
+            dtv.AllowUserToDeleteRows = false;
+            dtv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtv.Columns.AddRange(new DataGridViewColumn[] { id, firstnm, lastnm, itm, val });
+            dtv.Location = new Point(244, 33);
+            dtv.Name = "dtv";
+            dtv.ReadOnly = true;
+            dtv.RowHeadersWidth = 51;
+            dtv.RowTemplate.Height = 29;
+            dtv.Size = new Size(544, 216);
+            dtv.TabIndex = 10;
+            // 
+            // id
+            // 
+            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            id.DataPropertyName = "id";
+            id.HeaderText = "ID";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Width = 53;
+            // 
+            // firstnm
+            // 
+            firstnm.DataPropertyName = "firstname";
+            firstnm.HeaderText = "IMIĘ";
+            firstnm.MinimumWidth = 6;
+            firstnm.Name = "firstnm";
+            firstnm.ReadOnly = true;
+            firstnm.Width = 97;
+            // 
+            // lastnm
+            // 
+            lastnm.DataPropertyName = "lastname";
+            lastnm.HeaderText = "NAZWISKO";
+            lastnm.MinimumWidth = 6;
+            lastnm.Name = "lastnm";
+            lastnm.ReadOnly = true;
+            lastnm.Width = 98;
+            // 
+            // itm
+            // 
+            itm.DataPropertyName = "item";
+            itm.HeaderText = "TOWAR";
+            itm.MinimumWidth = 6;
+            itm.Name = "itm";
+            itm.ReadOnly = true;
+            itm.Width = 97;
+            // 
+            // val
+            // 
+            val.DataPropertyName = "value";
+            val.HeaderText = "WARTOŚĆ";
+            val.MinimumWidth = 6;
+            val.Name = "val";
+            val.ReadOnly = true;
+            val.Width = 97;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(94, 222);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(125, 27);
+            dateTimePicker1.TabIndex = 11;
+            // 
+            // reloadBtn
+            // 
+            reloadBtn.Location = new Point(468, 267);
+            reloadBtn.Name = "reloadBtn";
+            reloadBtn.Size = new Size(94, 29);
+            reloadBtn.TabIndex = 12;
+            reloadBtn.Text = "Odśwież";
+            reloadBtn.UseVisualStyleBackColor = true;
+            reloadBtn.Click += reloadBtn_Click;
             // 
             // Form1
             // 
@@ -141,6 +229,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(800, 440);
+            Controls.Add(reloadBtn);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(dtv);
             Controls.Add(valueTxt);
             Controls.Add(btnInsertPrint);
             Controls.Add(btnInsert);
@@ -155,6 +246,7 @@
             Name = "Form1";
             Text = "Faktury";
             ((System.ComponentModel.ISupportInitialize)valueTxt).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,5 +264,13 @@
         private Button btnInsert;
         private Button btnInsertPrint;
         private NumericUpDown valueTxt;
+        private DataGridView dtv;
+        private DateTimePicker dateTimePicker1;
+        private Button reloadBtn;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn firstnm;
+        private DataGridViewTextBoxColumn lastnm;
+        private DataGridViewTextBoxColumn itm;
+        private DataGridViewTextBoxColumn val;
     }
 }
